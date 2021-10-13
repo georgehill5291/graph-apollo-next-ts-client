@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+    ecommerce-fe-image:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        container_name: ecommerce-fe-container
+        ports:
+            - '3004:3004'

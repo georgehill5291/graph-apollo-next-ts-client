@@ -6,6 +6,7 @@
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
+        "prod": "next dev -p 3004",
         "lint": "next lint",
         "codegen": "graphql-codegen --config codegen.yml"
     },
