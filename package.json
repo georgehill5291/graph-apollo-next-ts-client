@@ -1,0 +1,47 @@
+{
+    "name": "my-app",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint",
+        "codegen": "graphql-codegen --config codegen.yml"
+    },
+    "dependencies": {
+        "@material-ui/core": "^4.12.3",
+        "@material-ui/icons": "^4.11.2",
+        "@apollo/client": "^3.4.10",
+        "@chakra-ui/icons": "^1.0.15",
+        "@chakra-ui/react": "^1.4.2",
+        "@chakra-ui/theme-tools": "1.1.2",
+        "@emotion/react": "11.1.5",
+        "@emotion/styled": "11.1.5",
+        "@types/styled-components": "^5.1.15",
+        "babel-preset-next": "^1.4.0",
+        "deepmerge": "^4.2.2",
+        "formik": "^2.2.9",
+        "framer-motion": "^4.0.3",
+        "graphql": "^15.5.1",
+        "isomorphic-unfetch": "^3.1.0",
+        "lodash": "^4.17.21",
+        "next": "11.1.2",
+        "react": "17.0.2",
+        "react-dom": "17.0.2",
+        "react-stripe-checkout": "^2.6.3",
+        "styled-components": "^5.3.1"
+    },
+    "devDependencies": {
+        "@graphql-codegen/cli": "2.1.1",
+        "@graphql-codegen/typescript": "2.1.2",
+        "@graphql-codegen/typescript-operations": "2.1.2",
+        "@graphql-codegen/typescript-react-apollo": "3.1.2",
+        "@types/node": "^14.6.0",
+        "@types/react": "17.0.27",
+        "@types/react-dom": "^17.0.3",
+        "eslint": "8.0.0",
+        "eslint-config-next": "11.1.2",
+        "typescript": "4.4.3"
+    }
+}
