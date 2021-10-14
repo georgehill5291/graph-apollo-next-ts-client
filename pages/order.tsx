@@ -52,8 +52,8 @@ const Order = () => {
             <Announcement />
             <Breadcrumbs />
             <Wrapper>
-                {orderData?.getOrderByUser.orders?.map((item) => (
-                    <OrderContainer>
+                {orderData?.getOrderByUser.orders?.map((item, index) => (
+                    <OrderContainer key={index}>
                         <Left>
                             {item.products.map((prodcutItem) => (
                                 <ProductItemContainer>

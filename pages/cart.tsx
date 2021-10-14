@@ -240,7 +240,7 @@ const Cart = () => {
                     <Info>
                         {cartData?.getCartByUser.carts?.map((item) => (
                             <>
-                                <Product>
+                                <Product key={item._id}>
                                     <ProductDetail>
                                         <Image src={item.product.img} />
                                         <Details>

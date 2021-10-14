@@ -170,15 +170,15 @@ const Product = () => {
                     <FilterContainer>
                         <Filter>
                             <FitlerTitle>Color</FitlerTitle>
-                            {data?.product?.color.map((item) => (
-                                <FitlerColor color={item} />
+                            {data?.product?.color.map((item, index) => (
+                                <FitlerColor color={item} key={index} />
                             ))}
                         </Filter>
                         <Filter>
                             <FitlerTitle>Size</FitlerTitle>
                             <FitlerSize>
-                                {data?.product?.size.map((item) => (
-                                    <FilterSizeOption>{item}</FilterSizeOption>
+                                {data?.product?.size.map((item, index) => (
+                                    <FilterSizeOption key={index}>{item}</FilterSizeOption>
                                 ))}
                             </FitlerSize>
                         </Filter>
