@@ -82,7 +82,9 @@ const Details = styled.div`
     justify-content: space-between;
 `
 const ProductName = styled.span``
-const ProductId = styled.span``
+const ProductId = styled.span`
+    ${mobile({ maxWidth: '70px' })}
+`
 const ProductColor = styled.div`
     width: 20px;
     height: 20px;

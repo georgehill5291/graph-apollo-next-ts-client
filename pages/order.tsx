@@ -6,6 +6,7 @@ import Navbar from '../src/components/shared/Navbar'
 import Breadcrumbs from '../src/components/shared/Breadcrumbs'
 import { mobile } from '../styles/responsive'
 import { useGetOrderByUserQuery } from './../src/generated/graphql'
+import PublicLayout from '../src/components/shared/PublicLayout'
 
 const Container = styled.div``
 const Wrapper = styled.div`
@@ -47,33 +48,32 @@ const Total = styled.div`
 const Order = () => {
     const { data: orderData, loading: orderLoading } = useGetOrderByUserQuery()
     return (
-        <Container>
-            <Navbar />
-            <Announcement />
-            <Breadcrumbs />
-            <Wrapper>
-                {orderData?.getOrderByUser.orders?.map((item, index) => (
-                    <OrderContainer key={index}>
-                        <Left>
-                            {item.products.map((prodcutItem) => (
-                                <ProductItemContainer>
-                                    <ProductImage src={prodcutItem.img} />
-                                    <ProductInfo>
-                                        <Title>{prodcutItem.title}</Title>
-                                        <Description>{prodcutItem.desc}</Description>
-                                    </ProductInfo>
-                                    <hr />
-                                </ProductItemContainer>
-                            ))}
-                        </Left>
-                        <Right>
-                            <Total>$ {item.total}</Total>
-                        </Right>
-                    </OrderContainer>
-                ))}
-            </Wrapper>
-            <Footer />
-        </Container>
+        <PublicLayout>
+            <Container>
+                <Breadcrumbs />
+                <Wrapper>
+                    {orderData?.getOrderByUser.orders?.map((item, index) => (
+                        <OrderContainer key={index}>
+                            <Left>
+                                {item.products.map((prodcutItem) => (
+                                    <ProductItemContainer>
+                                        <ProductImage src={prodcutItem.img} />
+                                        <ProductInfo>
+                                            <Title>{prodcutItem.title}</Title>
+                                            <Description>{prodcutItem.desc}</Description>
+                                        </ProductInfo>
+                                        <hr />
+                                    </ProductItemContainer>
+                                ))}
+                            </Left>
+                            <Right>
+                                <Total>$ {item.total}</Total>
+                            </Right>
+                        </OrderContainer>
+                    ))}
+                </Wrapper>
+            </Container>
+        </PublicLayout>
     )
 }
 

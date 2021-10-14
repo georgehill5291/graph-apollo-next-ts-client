@@ -4,21 +4,19 @@ import ProductListing4Home from '../src/components/product/ProductListing4Home'
 import Announcement from '../src/components/shared/Announcement'
 import Footer from '../src/components/shared/Footer'
 import Layout from '../src/components/shared/Layout'
+import PublicLayout from '../src/components/shared/PublicLayout'
 import Slider from '../src/components/Slider/Slider'
 import NewsLetter from '../src/newsLetter/NewsLetter'
 import Navbar from './../src/components/shared/Navbar'
 
 const Home = () => {
     return (
-        <>
-            <Announcement />
-            <Navbar />
+        <PublicLayout>
             <Slider />
             <Categories />
             <ProductListing4Home />
             <NewsLetter />
-            <Footer />
-        </>
+        </PublicLayout>
     )
 }
 

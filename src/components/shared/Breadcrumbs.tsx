@@ -19,6 +19,7 @@ interface IBreacrumb {
 
 const BreadcrumbOl = styled.ol`
     display: flex;
+    flex-wrap: wrap;
 `
 
 const BreadcrumbLi = styled.li`

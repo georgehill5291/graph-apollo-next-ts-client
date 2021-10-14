@@ -6,7 +6,7 @@ import Layout from './Layout'
 import { mobile } from '../../../styles/responsive'
 import NextLink from 'next/link'
 import { Badge } from '@material-ui/core'
-import { ShoppingCartOutlined } from '@material-ui/icons'
+import { AccountCircleOutlined, ShoppingCartOutlined } from '@material-ui/icons'
 import {
     MeDocument,
     MeQuery,
@@ -15,9 +15,15 @@ import {
     useMeQuery,
 } from '../../generated/graphql'
 import { initializeApollo } from '../../lib/apolloClient'
+import { useRouter } from 'next/router'
 
 const Container = styled.div`
     height: 60px;
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    background-color: #fff;
+
     ${mobile({ height: '50px' })}
 `
 
@@ -78,10 +84,48 @@ const MenuItem = styled.div`
     ${mobile({ fontSize: '12px', marginLeft: '10px' })}
 `
 
+const DropdownContent = styled.div`
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    /* min-width: 160px; */
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+`
+
+const DropdownWrapper = styled.div`
+    position: relative;
+    display: inline-block;
+
+    :hover ${DropdownContent} {
+        display: block;
+    }
+`
+const DropdownButton = styled.div`
+    background-color: #4caf50;
+    color: white;
+    padding: 5px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+
+    :hover {
+        background-color: #3e8e41;
+    }
+`
+
+const DowndownItem = styled.div`
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+`
+
 const Navbar = () => {
     const { data: cartData, loading: loadingCart } = useGetCartByUserQuery()
     const { data: meData, loading: meLoading } = useMeQuery()
     const [logout, { loading: useLogoutMutationLoading }] = useLogoutMutation()
+    const router = useRouter()
 
     const logoutUser = async () => {
         await logout({
@@ -126,11 +170,26 @@ const Navbar = () => {
                         </>
                     ) : (
                         <>
-                            <MenuItem>
-                                <Button onClick={logoutUser} isLoading={useLogoutMutationLoading}>
-                                    Logout
-                                </Button>
-                            </MenuItem>
+                            <DropdownWrapper>
+                                <DropdownButton>
+                                    <AccountCircleOutlined />
+                                </DropdownButton>
+                                <DropdownContent>
+                                    <DowndownItem>
+                                        <Button onClick={() => router.push('/order')}>
+                                            Orders
+                                        </Button>
+                                    </DowndownItem>
+                                    <DowndownItem>
+                                        <Button
+                                            onClick={logoutUser}
+                                            isLoading={useLogoutMutationLoading}
+                                        >
+                                            Logout
+                                        </Button>
+                                    </DowndownItem>
+                                </DropdownContent>
+                            </DropdownWrapper>
                         </>
                     )}
 

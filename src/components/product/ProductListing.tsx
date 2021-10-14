@@ -7,6 +7,7 @@ import NewsLetter from '../../newsLetter/NewsLetter'
 import Announcement from '../shared/Announcement'
 import Footer from '../shared/Footer'
 import Navbar from '../shared/Navbar'
+import PublicLayout from '../shared/PublicLayout'
 import ProductListing4Home from './ProductListing4Home'
 
 const Container = styled.div``
@@ -57,43 +58,40 @@ const ProductListing = () => {
     }
 
     return (
-        <Container>
-            <Navbar />
-            <Announcement />
-            <Title>Dresses</Title>
-            <FilterContainer>
-                <Filter>
-                    <FilterText>Filter Product:</FilterText>
-                    <Select onChange={onChangeColor}>
-                        <Option value='' selected>
-                            Color
-                        </Option>
-                        <Option value='white'>White</Option>
-                        <Option value='black'>Black</Option>
-                    </Select>
-                    <Select onChange={onChangeSize}>
-                        <Option selected value=''>
-                            Size
-                        </Option>
-                        <Option>M</Option>
-                        <Option>L</Option>
-                    </Select>
-                </Filter>
-                <Filter>
-                    <FilterText>Sort Product:</FilterText>
-                    <Select>
-                        <Option disabled selected>
-                            Size
-                        </Option>
-                        <Option>Title</Option>
-                        <Option>Description</Option>
-                    </Select>
-                </Filter>
-            </FilterContainer>
-            <ProductListing4Home />
-            <NewsLetter />
-            <Footer />
-        </Container>
+        <>
+            <Container>
+                <FilterContainer>
+                    <Filter>
+                        <FilterText>Filter Product:</FilterText>
+                        <Select onChange={onChangeColor}>
+                            <Option value='' selected>
+                                Color
+                            </Option>
+                            <Option value='white'>White</Option>
+                            <Option value='black'>Black</Option>
+                        </Select>
+                        <Select onChange={onChangeSize}>
+                            <Option selected value=''>
+                                Size
+                            </Option>
+                            <Option>M</Option>
+                            <Option>L</Option>
+                        </Select>
+                    </Filter>
+                    <Filter>
+                        <FilterText>Sort Product:</FilterText>
+                        <Select>
+                            <Option disabled selected>
+                                Size
+                            </Option>
+                            <Option>Title</Option>
+                            <Option>Description</Option>
+                        </Select>
+                    </Filter>
+                </FilterContainer>
+                <ProductListing4Home />
+            </Container>
+        </>
     )
 }
 

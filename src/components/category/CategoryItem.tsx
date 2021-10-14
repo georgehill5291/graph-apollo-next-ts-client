@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { mobile } from '../../../styles/responsive'
 import { categories } from '../../dump/data'
+import NextLink from 'next/link'
 
 const Container = styled.div`
     flex: 1;
@@ -52,7 +53,9 @@ const CategoryItem = (item: IProp) => {
             <Image src={item.img} />
             <Info>
                 <Title>{item.title}</Title>
-                <Button>SHOP NOW</Button>
+                <NextLink href='/product-list'>
+                    <Button>SHOP NOW</Button>
+                </NextLink>
             </Info>
         </Container>
     )
