@@ -21,7 +21,7 @@ const Container = styled.div`
     height: 60px;
     position: sticky;
     top: 0;
-    z-index: 3;
+    z-index: 4;
     background-color: #fff;
 
     ${mobile({ height: '50px' })}
