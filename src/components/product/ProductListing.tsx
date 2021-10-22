@@ -38,6 +38,7 @@ const Option = styled.option``
 
 const ProductListing = () => {
     const router = useRouter()
+    const limit = 10
 
     const onChangeColor = (event: any) => {
         const urlSearchParams = new URLSearchParams(window.location.search)
@@ -89,7 +90,7 @@ const ProductListing = () => {
                         </Select>
                     </Filter>
                 </FilterContainer>
-                <ProductListing4Home />
+                <ProductListing4Home limit={limit} />
             </Container>
         </>
     )

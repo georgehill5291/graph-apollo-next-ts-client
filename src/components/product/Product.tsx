@@ -5,6 +5,7 @@ import { SearchIcon } from '@chakra-ui/icons'
 import { SearchOutlined, ShoppingCartOutlined } from '@material-ui/icons'
 import { Product as ProductItem } from '../../generated/graphql'
 import NextLink from 'next/link'
+import { mobile } from '../../../styles/responsive'
 
 const Info = styled.div`
     opacity: 0;
@@ -23,8 +24,9 @@ const Info = styled.div`
 `
 
 const Container = styled.div`
-    flex: 1;
+    /* flex: 1; */
     margin: 5px;
+    width: calc(100vw / 6.5);
     min-width: 280px;
     height: 350px;
     display: flex;
@@ -36,6 +38,8 @@ const Container = styled.div`
     &:hover ${Info} {
         opacity: 1;
     }
+
+    ${mobile({ flex: '1', minWidth: '280px' })}
 `
 const Circle = styled.div`
     width: 200px;

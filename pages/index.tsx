@@ -10,11 +10,13 @@ import NewsLetter from '../src/newsLetter/NewsLetter'
 import Navbar from './../src/components/shared/Navbar'
 
 const Home = () => {
+    const limit = 5
+
     return (
         <PublicLayout>
             <Slider />
             <Categories />
-            <ProductListing4Home />
+            <ProductListing4Home limit={limit} isHome={true} />
             <NewsLetter />
         </PublicLayout>
     )
